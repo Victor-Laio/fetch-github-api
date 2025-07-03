@@ -4,4 +4,11 @@ async function getUser(userName) {
   return await response.json();
 }
 
-export { getUser };
+async function getUserEvent(userName) {
+  const response = await fetch(
+    `https://api.github.com/users/${userName}/events`
+  );
+  const data = await response.json();
+  return data;
+}
+export { getUser, getUserEvent };
